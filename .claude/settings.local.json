@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Mega Store/Desktop/**)",
+      "Bash(mysql -uroot -e \"show databases\")",
+      "Bash(mysql -uroot -e \"select 1\")",
+      "Bash(grep -E \"INSERT INTO \\\\`migrations\\\\`\" -A40 \"/c/Users/Mega Store/Desktop/rwaq_db \\(2\\).sql\")",
+      "Bash(git check-ignore *)",
+      "Bash(sed -e 's/^APP_NAME=.*/APP_NAME=\"رِواق المعرفة\"/' -e 's/^APP_LOCALE=.*/APP_LOCALE=ar/' -e 's#^APP_URL=.*#APP_URL=http://localhost:8000#' -e 's/^DB_CONNECTION=.*/DB_CONNECTION=mysql/' .env.example)",
+      "Bash(sed -i -e 's/^# DB_HOST=.*/DB_HOST=127.0.0.1/' -e 's/^# DB_PORT=.*/DB_PORT=3306/' -e 's/^# DB_DATABASE=.*/DB_DATABASE=rwaq_db/' -e 's/^# DB_USERNAME=.*/DB_USERNAME=root/' -e 's/^# DB_PASSWORD=.*/DB_PASSWORD=/' .env)",
+      "Bash(php artisan *)",
+      "Bash(mysql -uroot -e \"CREATE DATABASE IF NOT EXISTS rwaq_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\")",
+      "Bash(mysql -uroot --default-character-set=utf8mb4 rwaq_db)",
+      "Bash(mysql -uroot rwaq_db -e \"select count\\(*\\) users from users; select count\\(*\\) books from books; select count\\(*\\) libs from libraries; select id,name,category,cover_image from books limit 5; select id,name,email,role from users limit 5\")",
+      "Bash(composer install *)",
+      "Bash(mysql -uroot rwaq_db -e \"select count\\(*\\) users from users; select count\\(*\\) books from books; select count\\(*\\) libs from libraries; select id,title,category,cover_image from books limit 5; select id,name,email,role from users limit 5\")",
+      "Bash(mysql -uroot rwaq_db -e \"select id,title,author,category,total_pages,cover_color,left\\(description,40\\) d from books; select id,name,type,is_personal from libraries; select count\\(*\\) from communities; select count\\(*\\) from challenges; select count\\(*\\) from book_copies\" --default-character-set=utf8mb4)",
+      "Bash(python -)"
+    ]
+  }
+}

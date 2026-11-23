@@ -1,0 +1,18 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # منع الوصول لأي ملف أو مجلد حساس مباشرة
+    RewriteRule ^(\.env|\.git|app|bootstrap|config|database|routes|storage|tests|vendor|resources)(/|$) - [F,L,NC]
+    RewriteRule ^(artisan|composer\.json|composer\.lock|package\.json|phpunit\.xml|README\.md|.*\.zip|.*\.sql)$ - [F,L,NC]
+
+    # تحويل كل شيء إلى مجلد public
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^(?!public/)(.*)$ public/$1 [L]
+</IfModule>
+
+# حماية إضافية: أي ملف يبدأ بنقطة (مثل .env) محظور
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
